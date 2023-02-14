@@ -1,0 +1,172 @@
+1.Определить имя папки, в которой вы находитесь
+
+$ pwd
+
+2.Создать папку с именем test1
+
+$ mkdir test1
+
+3.Перейти в папку test1
+
+$ cd test1
+
+4.Создать файл 1,2 и 3 внутри каталога test1
+
+$ touch test1/{1.txt,2.txt,3.txt}
+
+5.Проверить содержимое каталога test1
+
+$ ls test1
+1.txt  2.txt  3.txt
+
+6.Создать папку test2 внутри домашней директории
+
+$ mkdir test2
+
+7.Удалить папку test2
+
+$ rmdir test2
+
+8.Удалить файл 2
+
+$ rm test1/2.txt
+
+9.Создать папку test3 и добавить в нее два файла
+
+$ mkdir test3 && touch test3/{1.txt,2.txt}
+
+10.Удалить папку test3
+
+$ rm -rf test3
+
+11.Создать папку test4
+
+$ mkdir test4
+
+12.Переместить файлы 1 и 3 в папку test4
+
+$ mv test1/{1.txt,3.txt} test4/
+
+13.Добавить в файл 1 три строки со словами line
+
+$ echo -e "line\nline\nline" > test4/1.txt
+
+14.Посмотреть содержимое файла 1
+
+$ cat test4/1.txt
+line
+line
+line
+
+15.Добавьте в файл 3 три строки со словами line
+
+$ echo -e "line\nline\nline">test4/3.txt
+
+16.Просмотрите содержимое двух файлов (1 и 3) сразу
+
+$ cat test4/{1.txt,3.txt}
+line
+line
+line
+line
+line
+line
+
+17.Используя один из редакторов замените все строки
+
+$ nano test4/1.txt
+
+$ cat test4/1.txt
+qwertyw
+defrfr
+frfrfrf
+
+
+18.Создать папку test 3
+
+$ mkdir test3
+
+19.Добавить в него три файла 4, 5 и 6, в каждом из которых должно быть по 4 строки row1, row2, row3, row4
+$ for i in {4..6}; do echo -e "row1\nrow2\nrow3\nrow4" >> test3/"$i.txt";done
+
+20.Найдите строку row2 в файле 5
+$ grep row2 test3/5.txt
+
+21.Найдите строку row в папке test3
+$ grep -R row test3
+
+22.Посчитайте сколько строк с содержимым row в файле 6
+$ grep row test3/6.txt|wc -l
+
+23.Найдите файл 5 внутри папки test3
+$ find test3 -name 5.txt
+
+24.Используя команду find, удалите файл 5
+$ find test3 -name 5.txt -delete -print
+
+25.Используя команду echo, добавьте слово test в файл 4
+$ echo test >> test3/4.txt
+
+26.Замените слово test в файле 4 на fail
+$ sed -i 's/test/fail/' test3/4.txt
+
+27.Добавьте в файл 4 слово test так, чтобы сохранилось содержимое
+$ echo test >> test3/4.txt
+
+28.Просмотрите все процессы для юзеров не только в консоли, которые происходят в системе
+$ ps aux
+
+29.Убейте процесс 666 в консоли
+kill 666
+
+30.Узнайте доступность ресурса artsiomrusau.com, используя ping
+$ ping artsiomrusau.com
+
+31.Отправьте 5 пакетов на сайт artsiomrusau.com
+$ ping -c 5 artsiomrusau.com
+
+32.Используя GET и команду curl, получите информацию о зарегистрированных питомцах на https://petstore.swagger.io/
+curl -X 'GET' \
+  'https://petstore.swagger.io/v2/pet/findByStatus?status=available' \
+  -H 'accept: application/json'
+
+33.Используя POST и команду curl, создайте нового пользователя на https://petstore.swagger.io/
+curl -X 'POST' \
+  'https://petstore.swagger.io/v2/pet' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "id": 0,
+  "category": {
+    "id": 0,
+    "name": "string"
+  },
+  "name": "doggie",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "status": "available"
+}'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
